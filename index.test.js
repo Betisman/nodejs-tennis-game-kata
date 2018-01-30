@@ -22,4 +22,23 @@ describe('A tennis game', () => {
         game.playerScores('playerB');
         expect(game.displayScore()).to.eql('15 - 15');
     });
+
+    it('score can be set', () => {
+        game.setScore('0 - 0');
+        expect(game.displayScore()).to.eql('0 - 0');
+        game.setScore('15 - 0');
+        expect(game.displayScore()).to.eql('15 - 0');
+        game.setScore('30 - 15');
+        expect(game.displayScore()).to.eql('30 - 15');
+        game.setScore('40 - 30');
+        expect(game.displayScore()).to.eql('40 - 30');
+        game.setScore('sfdffs');
+        expect(game.displayScore()).to.eql('999 - 999');
+    })
+
+    it('tied to 40 - 40', () => {
+        game.setScore('40-30');
+        game.playerScores('playerB');
+        expect(game.displayScore()).to.eql('40 - 40');
+    });
 });

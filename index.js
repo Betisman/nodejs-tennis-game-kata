@@ -17,9 +17,20 @@ const Game = () => {
         score[player] = getNewScore[score[player]];
     };
 
+    const checkPoints = (points) => [0, 15, 30, 40].indexOf(points) > -1;
+    const setScore = (_score_) => {
+        [playerAPoints, playerBPoints] = _score_.split('-').map(x => parseInt(x));
+        score = {
+            playerA: checkPoints(playerAPoints) ? playerAPoints : 999,
+            playerB: checkPoints(playerBPoints) ? playerBPoints : 999,
+        };
+
+    }
+
     return {
         displayScore,
         playerScores,
+        setScore,
     }
 };
 
