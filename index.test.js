@@ -36,9 +36,9 @@ describe('A tennis game', () => {
         expect(game.displayScore()).to.eql('999 - 999');
     })
 
-    it('tied to 40 - 40', () => {
+    it('DEUCE', () => {
         game.setScore('40-30');
         game.playerScores('playerB');
-        expect(game.displayScore()).to.eql('40 - 40');
+        expect(game.displayScore()).to.eql('DEUCE');
     });
 });

@@ -4,7 +4,11 @@ const Game = () => {
         playerB: 0,
     };
 
-    const displayScore = () => `${score.playerA} - ${score.playerB}`;
+    const formattedScore = (_score_) => ({
+        '40 - 40': 'DEUCE',
+    })[_score_] || _score_;
+
+    const displayScore = () => formattedScore(`${score.playerA} - ${score.playerB}`);
 
     const getNewScore = {
         0: 15,
@@ -24,14 +28,13 @@ const Game = () => {
             playerA: checkPoints(playerAPoints) ? playerAPoints : 999,
             playerB: checkPoints(playerBPoints) ? playerBPoints : 999,
         };
-
-    }
+    };
 
     return {
         displayScore,
         playerScores,
         setScore,
-    }
+    };
 };
 
 module.exports = Game;
