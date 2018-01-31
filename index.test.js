@@ -41,4 +41,10 @@ describe('A tennis game', () => {
         game.playerScores('playerB');
         expect(game.displayScore()).to.eql('DEUCE');
     });
+
+    it('player B gets Advantage', () => {
+        game.setScore('40-40');
+        game.playerScores('playerB');
+        expect(game.displayScore()).to.eql('ADV PLAYER B');
+    })
 });

@@ -6,6 +6,8 @@ const Game = () => {
 
     const formattedScore = (_score_) => ({
         '40 - 40': 'DEUCE',
+        '50 - 40': 'ADV PLAYER A',
+        '40 - 50': 'ADV PLAYER B',
     })[_score_] || _score_;
 
     const displayScore = () => formattedScore(`${score.playerA} - ${score.playerB}`);
@@ -14,7 +16,7 @@ const Game = () => {
         0: 15,
         15: 30,
         30: 40,
-        40: 0,
+        40: 50,
     };
 
     const playerScores = (player) => {
